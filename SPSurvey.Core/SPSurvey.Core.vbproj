@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14642D66-B5BE-4CE7-811F-32953A9415B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SPSurvey.Core</RootNamespace>
+    <AssemblyName>SPSurvey.Core</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SPSurvey.Core.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SPSurvey.Core.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SPSurvey.Core.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\QuestionListUtility.vb" />
+    <Compile Include="BL\SurveyResponseAnswerListBL.vb" />
+    <Compile Include="BL\SurveyResponseQuestionForm.vb" />
+    <Compile Include="BL\SurveyItemBL.vb" />
+    <Compile Include="BL\SurveyResponseItemBL.vb" />
+    <Compile Include="BL\SurveyResponseItemComparerSurveyShortNM.vb" />
+    <Compile Include="DAL\DataController.vb" />
+    <Compile Include="DAL\SurveyAppLINQ1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SurveyAppLINQ.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presenter\SurveyResponseUI.vb" />
+    <Compile Include="Presenter\UIPresenterBase.vb" />
+    <Compile Include="SDK\ApplicationChart.vb" />
+    <Compile Include="SDK\ApplicationTypeItem.vb" />
+    <Compile Include="SDK\CompanyItem.vb" />
+    <Compile Include="SDK\CO_DataGrid.vb" />
+    <Compile Include="SDK\Lookups\ILookupItemList.vb" />
+    <Compile Include="SDK\Lookups\LookupType.vb" />
+    <Compile Include="SDK\RoleItem.vb" />
+    <Compile Include="SDK\SurveyTypeItem.vb" />
+    <Compile Include="SDK\tblFilesItem.vb" />
+    <Compile Include="SDK\ImportSurveyResponse.vb" />
+    <Compile Include="SDK\ImportSurveyResponseAnswer.vb" />
+    <Compile Include="SDK\NavigationMenuItem.vb" />
+    <Compile Include="SDK\SiteMessageItem.vb" />
+    <Compile Include="SDK\SiteRoleItem.vb" />
+    <Compile Include="SDK\PropertyItem.vb" />
+    <Compile Include="SDK\ApplicationSurveyItem.vb" />
+    <Compile Include="SDK\ApplicationUserRoleItem.vb" />
+    <Compile Include="SDK\ApplicationUserItem.vb" />
+    <Compile Include="SDK\ApplicationItem.vb" />
+    <Compile Include="SDK\GlobalApplicationProperties.vb" />
+    <Compile Include="SDK\ImportHistoryItem.vb" />
+    <Compile Include="SDK\Lookups\ISurveyResponseStatusLookupList.vb" />
+    <Compile Include="SDK\QuestionAnswerItem.vb" />
+    <Compile Include="SDK\QuestionGroupMemberItem.vb" />
+    <Compile Include="SDK\QuestionGroupItem.vb" />
+    <Compile Include="SDK\QuestionItem.vb" />
+    <Compile Include="SDK\SurveyEmailTemplateItem.vb" />
+    <Compile Include="SDK\SurveyResponseAnswerReviewItem.vb" />
+    <Compile Include="SDK\SurveyResponseAnswerItem.vb" />
+    <Compile Include="SDK\SurveyResponseHistoryItem.vb" />
+    <Compile Include="SDK\SurveyResponseSequenceItem.vb" />
+    <Compile Include="SDK\SurveyResponseStateItem.vb" />
+    <Compile Include="SDK\SurveyResponse\ISurveyResponse.vb" />
+    <Compile Include="SDK\SurveyResponse\ISurveyResponseDropdown.vb" />
+    <Compile Include="SDK\SurveyResponse\ISurveyResponseList.vb" />
+    <Compile Include="SDK\SurveyResponse\SurveyResponseItem.vb" />
+    <Compile Include="SDK\SurveyReviewStatusItem.vb" />
+    <Compile Include="SDK\SurveyStatusItem.vb" />
+    <Compile Include="SDK\SurveyItem.vb" />
+    <Compile Include="SDK\UserAppPropertyItem.vb" />
+    <Compile Include="SDK\UserAppSetting.vb" />
+    <Compile Include="SDK\WebPortalItem.vb" />
+    <Compile Include="Utility\AppUtility.vb" />
+    <Compile Include="Utility\SQLHelper\SQLFilterClause.vb" />
+    <Compile Include="Utility\SQLHelper\SQLFilterConjunction.vb" />
+    <Compile Include="Utility\SQLHelper\SQLFilterList.vb" />
+    <Compile Include="Utility\SQLHelper\SQLFilterOperator.vb" />
+    <Compile Include="Utility\SurveyXmlDocument.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DAL\SurveyAppLINQ.dbml.layout">
+      <DependentUpon>SurveyAppLINQ.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="SPSurvey.Core.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAL\SurveyAppLINQ.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SurveyAppLINQ1.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SDK\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COUtility\COUtility.vbproj">
+      <Project>{af835dc5-7e3b-4a45-b5f0-b7b59ca3bf6f}</Project>
+      <Name>COUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LINQHelper\LINQHelper.vbproj">
+      <Project>{7a0f4560-3bea-4487-8575-0852bbb561a6}</Project>
+      <Name>LINQHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

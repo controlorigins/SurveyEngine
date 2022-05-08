@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.controlorigins.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.controlorigins.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.controlorigins.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetSurveyResponseSummaryGrid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="tns:ArrayOfSQLFilterClause" />
+            <s:element minOccurs="1" maxOccurs="1" name="myGuid" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSQLFilterClause">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SQLFilterClause" nillable="true" type="tns:SQLFilterClause" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SQLFilterClause">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Field" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FieldOperator" type="tns:SQLFilterOperator" />
+          <s:element minOccurs="1" maxOccurs="1" name="Conjunction" type="tns:SQLFilterConjunction" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Argument" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SQLFilterOperator">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="GreaterThan" />
+          <s:enumeration value="LessThan" />
+          <s:enumeration value="GreaterThanEqual" />
+          <s:enumeration value="LessThanEqual" />
+          <s:enumeration value="dbLike" />
+          <s:enumeration value="dbIn" />
+          <s:enumeration value="dbBetween" />
+          <s:enumeration value="dbIsNull" />
+          <s:enumeration value="dbIsNotNull" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="SQLFilterConjunction">
+        <s:restriction base="s:string">
+          <s:enumeration value="andConjunction" />
+          <s:enumeration value="orConjunction" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetSurveyResponseSummaryGridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSurveyResponseSummaryGridResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CO_DataGrid">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GridColumns" type="tns:ArrayOfGridColumn" />
+          <s:element minOccurs="0" maxOccurs="1" name="GridRows" type="tns:ArrayOfGridRow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGridColumn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GridColumn" nillable="true" type="tns:GridColumn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GridColumn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColumnDisplayFormat" type="tns:DisplayFormat" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MinValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaxValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueValues" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MostCommon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeastCommon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColumnValues" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DisplayFormat">
+        <s:restriction base="s:string">
+          <s:enumeration value="Number" />
+          <s:enumeration value="Currency" />
+          <s:enumeration value="Text" />
+          <s:enumeration value="Percent" />
+          <s:enumeration value="Float" />
+          <s:enumeration value="Thumbnail" />
+          <s:enumeration value="Hidden" />
+          <s:enumeration value="ShortDate" />
+          <s:enumeration value="LongDate" />
+          <s:enumeration value="Link" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGridRow">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GridRow" nillable="true" type="tns:GridRow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GridRow">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSurveyResponseGroupGrid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="tns:ArrayOfSQLFilterClause" />
+            <s:element minOccurs="1" maxOccurs="1" name="myGuid" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSurveyResponseGroupGridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSurveyResponseGroupGridResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSurveyResponseAnswersGrid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="tns:ArrayOfSQLFilterClause" />
+            <s:element minOccurs="1" maxOccurs="1" name="myGuid" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSurveyResponseAnswersGridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSurveyResponseAnswersGridResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationGrid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="myGUID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationGridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationGridResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSurveySummaryGrid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="tns:ArrayOfSQLFilterClause" />
+            <s:element minOccurs="1" maxOccurs="1" name="myGuid" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSurveySummaryGridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSurveySummaryGridResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuestionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Filters" type="tns:ArrayOfSQLFilterClause" />
+            <s:element minOccurs="1" maxOccurs="1" name="myGuid" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuestionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuestionListResult" type="tns:CO_DataGrid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSurveyResponseSummaryGridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseSummaryGrid" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveyResponseSummaryGridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseSummaryGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveyResponseGroupGridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseGroupGrid" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveyResponseGroupGridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseGroupGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveyResponseAnswersGridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseAnswersGrid" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveyResponseAnswersGridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSurveyResponseAnswersGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationGridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationGrid" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationGridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveySummaryGridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSurveySummaryGrid" />
+  </wsdl:message>
+  <wsdl:message name="GetSurveySummaryGridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSurveySummaryGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuestionList" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuestionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataAnalysisSoap">
+    <wsdl:operation name="GetSurveyResponseSummaryGrid">
+      <wsdl:input message="tns:GetSurveyResponseSummaryGridSoapIn" />
+      <wsdl:output message="tns:GetSurveyResponseSummaryGridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseGroupGrid">
+      <wsdl:input message="tns:GetSurveyResponseGroupGridSoapIn" />
+      <wsdl:output message="tns:GetSurveyResponseGroupGridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseAnswersGrid">
+      <wsdl:input message="tns:GetSurveyResponseAnswersGridSoapIn" />
+      <wsdl:output message="tns:GetSurveyResponseAnswersGridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGrid">
+      <wsdl:input message="tns:GetApplicationGridSoapIn" />
+      <wsdl:output message="tns:GetApplicationGridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveySummaryGrid">
+      <wsdl:input message="tns:GetSurveySummaryGridSoapIn" />
+      <wsdl:output message="tns:GetSurveySummaryGridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionList">
+      <wsdl:input message="tns:GetQuestionListSoapIn" />
+      <wsdl:output message="tns:GetQuestionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataAnalysisSoap" type="tns:DataAnalysisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSurveyResponseSummaryGrid">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseSummaryGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseGroupGrid">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseGroupGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseAnswersGrid">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseAnswersGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGrid">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetApplicationGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveySummaryGrid">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetSurveySummaryGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionList">
+      <soap:operation soapAction="http://ws.controlorigins.com/GetQuestionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataAnalysisSoap12" type="tns:DataAnalysisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSurveyResponseSummaryGrid">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseSummaryGrid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseGroupGrid">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseGroupGrid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyResponseAnswersGrid">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetSurveyResponseAnswersGrid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGrid">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetApplicationGrid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveySummaryGrid">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetSurveySummaryGrid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionList">
+      <soap12:operation soapAction="http://ws.controlorigins.com/GetQuestionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataAnalysis">
+    <wsdl:port name="DataAnalysisSoap" binding="tns:DataAnalysisSoap">
+      <soap:address location="http://ws.controlorigins.com/DataAnalysis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataAnalysisSoap12" binding="tns:DataAnalysisSoap12">
+      <soap12:address location="http://ws.controlorigins.com/DataAnalysis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

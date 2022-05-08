@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.cityinformationcenter.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.cityinformationcenter.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.cityinformationcenter.com">
+      <s:element name="GetAllTags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTagsResult" type="tns:ArrayOfTagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTagItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TagItem" nillable="true" type="tns:TagItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TagItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TagTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TagTypeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PutTagItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tag" type="tns:TagItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutTagItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutTagItemResult" type="tns:TagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTagItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tag" type="tns:TagItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTagItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTagItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagsByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="reqTagTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagsByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTagsByTypeResult" type="tns:ArrayOfTagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagsByContentID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagsByContentIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTagsByContentIDResult" type="tns:ArrayOfTagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTagTypesResult" type="tns:ArrayOfTagTypeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTagTypeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TagTypeItem" nillable="true" type="tns:TagTypeItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TagTypeItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTagTypeByTagTypeID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TagTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTagTypeByTagTypeIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTagTypeByTagTypeIDResult" type="tns:TagTypeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutTagType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagType" type="tns:TagTypeItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutTagTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutTagTypeResult" type="tns:TagTypeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTagType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TagType" type="tns:TagTypeItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTagTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTagTypeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllContentResult" type="tns:ArrayOfContentItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContentItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContentItem" nillable="true" type="tns:ContentItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContentItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PubDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndPubDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IconURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastEditDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkAnchorText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReadMoreText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TagList" type="tns:ArrayOfTagItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContentByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentByIDResult" type="tns:ContentItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentByTagList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tags" type="tns:ArrayOfTagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentByTagListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentByTagListResult" type="tns:ArrayOfContentItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutContentItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:ContentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutContentItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutContentItemResult" type="tns:ContentItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:ContentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="tags" type="tns:ArrayOfTagItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddContentResult" type="tns:ContentItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:ContentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="tags" type="tns:ArrayOfTagItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateConentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentOnly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:ContentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentOnlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateContentOnlyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLinkedItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Linkeditemid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLinkedItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveLinkedItemResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllContentTags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllContentTagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllContentTagsResult" type="tns:ArrayOfContentTagItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContentTagItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContentTagItem" nillable="true" type="tns:ContentTagItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContentTagItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TagID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TagName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateContentTags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LinkedContentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tags" type="tns:ArrayOfTagItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentTagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateContentTagsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imageURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllTagsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTags" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTagsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutTagItemSoapIn">
+    <wsdl:part name="parameters" element="tns:PutTagItem" />
+  </wsdl:message>
+  <wsdl:message name="PutTagItemSoapOut">
+    <wsdl:part name="parameters" element="tns:PutTagItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTagItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTagItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTagItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTagItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTagsByType" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTagsByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsByContentIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTagsByContentID" />
+  </wsdl:message>
+  <wsdl:message name="GetTagsByContentIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTagsByContentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTagTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTagTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetTagTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTagTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTagTypeByTagTypeIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTagTypeByTagTypeID" />
+  </wsdl:message>
+  <wsdl:message name="GetTagTypeByTagTypeIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTagTypeByTagTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutTagTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:PutTagType" />
+  </wsdl:message>
+  <wsdl:message name="PutTagTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:PutTagTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTagTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTagType" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTagTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTagTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllContent" />
+  </wsdl:message>
+  <wsdl:message name="GetAllContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentByID" />
+  </wsdl:message>
+  <wsdl:message name="GetContentByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentByTagListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentByTagList" />
+  </wsdl:message>
+  <wsdl:message name="GetContentByTagListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentByTagListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutContentItemSoapIn">
+    <wsdl:part name="parameters" element="tns:PutContentItem" />
+  </wsdl:message>
+  <wsdl:message name="PutContentItemSoapOut">
+    <wsdl:part name="parameters" element="tns:PutContentItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddContentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddContent" />
+  </wsdl:message>
+  <wsdl:message name="AddContentSoapOut">
+    <wsdl:part name="parameters" element="tns:AddContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConent" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentOnlySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContentOnly" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentOnlySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContentOnlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLinkedItemSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveLinkedItem" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLinkedItemSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveLinkedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllContentTagsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllContentTags" />
+  </wsdl:message>
+  <wsdl:message name="GetAllContentTagsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllContentTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTagsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContentTags" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTagsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContentTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchImageSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchImage" />
+  </wsdl:message>
+  <wsdl:message name="FetchImageSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchImageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DTFMWSSoap">
+    <wsdl:operation name="GetAllTags">
+      <wsdl:input message="tns:GetAllTagsSoapIn" />
+      <wsdl:output message="tns:GetAllTagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutTagItem">
+      <wsdl:input message="tns:PutTagItemSoapIn" />
+      <wsdl:output message="tns:PutTagItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagItem">
+      <wsdl:input message="tns:DeleteTagItemSoapIn" />
+      <wsdl:output message="tns:DeleteTagItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByType">
+      <wsdl:input message="tns:GetTagsByTypeSoapIn" />
+      <wsdl:output message="tns:GetTagsByTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByContentID">
+      <wsdl:input message="tns:GetTagsByContentIDSoapIn" />
+      <wsdl:output message="tns:GetTagsByContentIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypes">
+      <wsdl:input message="tns:GetTagTypesSoapIn" />
+      <wsdl:output message="tns:GetTagTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypeByTagTypeID">
+      <wsdl:input message="tns:GetTagTypeByTagTypeIDSoapIn" />
+      <wsdl:output message="tns:GetTagTypeByTagTypeIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutTagType">
+      <wsdl:input message="tns:PutTagTypeSoapIn" />
+      <wsdl:output message="tns:PutTagTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagType">
+      <wsdl:input message="tns:DeleteTagTypeSoapIn" />
+      <wsdl:output message="tns:DeleteTagTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContent">
+      <wsdl:input message="tns:GetAllContentSoapIn" />
+      <wsdl:output message="tns:GetAllContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByID">
+      <wsdl:input message="tns:GetContentByIDSoapIn" />
+      <wsdl:output message="tns:GetContentByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByTagList">
+      <wsdl:input message="tns:GetContentByTagListSoapIn" />
+      <wsdl:output message="tns:GetContentByTagListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutContentItem">
+      <wsdl:input message="tns:PutContentItemSoapIn" />
+      <wsdl:output message="tns:PutContentItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <wsdl:input message="tns:AddContentSoapIn" />
+      <wsdl:output message="tns:AddContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConent">
+      <wsdl:input message="tns:UpdateConentSoapIn" />
+      <wsdl:output message="tns:UpdateConentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentOnly">
+      <wsdl:input message="tns:UpdateContentOnlySoapIn" />
+      <wsdl:output message="tns:UpdateContentOnlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLinkedItem">
+      <wsdl:input message="tns:RemoveLinkedItemSoapIn" />
+      <wsdl:output message="tns:RemoveLinkedItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContentTags">
+      <wsdl:input message="tns:GetAllContentTagsSoapIn" />
+      <wsdl:output message="tns:GetAllContentTagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTags">
+      <wsdl:input message="tns:UpdateContentTagsSoapIn" />
+      <wsdl:output message="tns:UpdateContentTagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchImage">
+      <wsdl:input message="tns:FetchImageSoapIn" />
+      <wsdl:output message="tns:FetchImageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DTFMWSSoap" type="tns:DTFMWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTags">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetAllTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagItem">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/PutTagItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagItem">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/DeleteTagItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByType">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetTagsByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByContentID">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetTagsByContentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypes">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetTagTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypeByTagTypeID">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetTagTypeByTagTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagType">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/PutTagType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagType">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/DeleteTagType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContent">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetAllContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByID">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetContentByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByTagList">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetContentByTagList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutContentItem">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/PutContentItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/AddContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConent">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/UpdateConent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentOnly">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/UpdateContentOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLinkedItem">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/RemoveLinkedItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContentTags">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/GetAllContentTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTags">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/UpdateContentTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchImage">
+      <soap:operation soapAction="http://ws.cityinformationcenter.com/FetchImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DTFMWSSoap12" type="tns:DTFMWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTags">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetAllTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagItem">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/PutTagItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagItem">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/DeleteTagItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByType">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetTagsByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsByContentID">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetTagsByContentID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypes">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetTagTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagTypeByTagTypeID">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetTagTypeByTagTypeID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutTagType">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/PutTagType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagType">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/DeleteTagType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContent">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetAllContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByID">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetContentByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentByTagList">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetContentByTagList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutContentItem">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/PutContentItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/AddContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConent">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/UpdateConent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentOnly">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/UpdateContentOnly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLinkedItem">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/RemoveLinkedItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContentTags">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/GetAllContentTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTags">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/UpdateContentTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchImage">
+      <soap12:operation soapAction="http://ws.cityinformationcenter.com/FetchImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DTFMWS">
+    <wsdl:port name="DTFMWSSoap" binding="tns:DTFMWSSoap">
+      <soap:address location="http://ws.cityinformationcenter.com/DTFMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DTFMWSSoap12" binding="tns:DTFMWSSoap12">
+      <soap12:address location="http://ws.cityinformationcenter.com/DTFMWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

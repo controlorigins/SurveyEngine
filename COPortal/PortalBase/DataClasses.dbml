@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="COSAS_NYL" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=cosurveydb.cnggm5xnvplw.us-west-2.rds.amazonaws.com;Initial Catalog=COSAS_NYL;User ID=codb" SettingsObjectName="COPortal.My.MySettings" SettingsPropertyName="COSAS_NYLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AppProperty" Member="AppProperties">
+    <Type Name="AppProperty">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteAppID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Key]" Member="Key" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="SiteApp_AppProperty" Member="SiteApp" ThisKey="SiteAppID" OtherKey="Id" Type="SiteApp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChartSetting" Member="ChartSettings">
+    <Type Name="ChartSetting">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SiteAppID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SettingType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SettingValueEnhanced" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="SiteApp_ChartSetting" Member="SiteApp" ThisKey="SiteAppID" OtherKey="Id" Type="SiteApp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COArtical" Member="COArticals">
+    <Type Name="COArtical">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="KeyWords" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="imageUrl" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ButtonTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteApp" Member="SiteApps">
+    <Type Name="SiteApp">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="AppDiscription" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ApplicationFolder" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultAppPage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SiteApp_AppProperty" Member="AppProperties" ThisKey="Id" OtherKey="SiteAppID" Type="AppProperty" />
+      <Association Name="SiteApp_ChartSetting" Member="ChartSettings" ThisKey="Id" OtherKey="SiteAppID" Type="ChartSetting" />
+      <Association Name="SiteApp_SiteAppMenu" Member="SiteAppMenus" ThisKey="Id" OtherKey="SiteAppID" Type="SiteAppMenu" />
+      <Association Name="SiteApp_UserAppRelation" Member="UserAppRelations" ThisKey="Id" OtherKey="SiteAppID" Type="UserAppRelation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteAppMenu" Member="SiteAppMenus">
+    <Type Name="SiteAppMenu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteAppID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MenuText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TartgetPage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GlyphName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MenuOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SiteRoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ViewInMenu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SiteApp_SiteAppMenu" Member="SiteApp" ThisKey="SiteAppID" OtherKey="Id" Type="SiteApp" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="SiteRole_SiteAppMenu" Member="SiteRole" ThisKey="SiteRoleID" OtherKey="Id" Type="SiteRole" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteRole" Member="SiteRoles">
+    <Type Name="SiteRole">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SiteRole_SiteAppMenu" Member="SiteAppMenus" ThisKey="Id" OtherKey="SiteRoleID" Type="SiteAppMenu" />
+      <Association Name="SiteRole_SiteUser" Member="SiteUsers" ThisKey="Id" OtherKey="RoleID" Type="SiteUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SiteUser" Member="SiteUsers">
+    <Type Name="SiteUser">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="lastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserLogin" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailVerified" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="VerifyCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AssAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="SiteUser_UserAppProperty" Member="UserAppProperties" ThisKey="Id" OtherKey="UserID" Type="UserAppProperty" />
+      <Association Name="SiteUser_UserAppRelation" Member="UserAppRelations" ThisKey="Id" OtherKey="UserID" Type="UserAppRelation" />
+      <Association Name="SiteRole_SiteUser" Member="SiteRole" ThisKey="RoleID" OtherKey="Id" Type="SiteRole" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAppProperty" Member="UserAppProperties">
+    <Type Name="UserAppProperty">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AppID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Key]" Member="Key" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="SiteUser_UserAppProperty" Member="SiteUser" ThisKey="UserID" OtherKey="Id" Type="SiteUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAppRelation" Member="UserAppRelations">
+    <Type Name="UserAppRelation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SiteAppID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsDemo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StartupDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="isMonthlyPrice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="UserInroled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsUserAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SiteApp_UserAppRelation" Member="SiteApp" ThisKey="SiteAppID" OtherKey="Id" Type="SiteApp" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="SiteUser_UserAppRelation" Member="SiteUser" ThisKey="UserID" OtherKey="Id" Type="SiteUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserMessages" Member="UserMessages">
+    <Type Name="UserMessage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ToUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FromUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Opened" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CratedDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AppID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShowonPage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FromApp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

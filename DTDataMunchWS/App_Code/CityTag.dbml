@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WebProjectMechanics" Class="CityTagDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=cosurveydb.cnggm5xnvplw.us-west-2.rds.amazonaws.com;Initial Catalog=WebProjectMechanics;User ID=codb;Connect Timeout=60" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DTDATAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ContentTag" Member="ContentTags">
+    <Type Name="ContentTag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LinkedContent_ContentTag" Member="LinkedContent" ThisKey="LinkedContentID" OtherKey="Id" Type="LinkedContent" IsForeignKey="true" />
+      <Association Name="Tag_ContentTag" Member="Tag" ThisKey="TagID" OtherKey="Id" Type="Tag" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Domain" Member="Domains">
+    <Type Name="Domain">
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DomainNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainDS" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GalleryFolder" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainURL" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainTitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UseBreadCrumbURL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VersionNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Domain_DomainTag" Member="DomainTags" ThisKey="DomainID" OtherKey="DomainID" Type="DomainTag" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DomainTag" Member="DomainTags">
+    <Type Name="DomainTag">
+      <Column Name="DomainTagID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Domain_DomainTag" Member="Domain" ThisKey="DomainID" OtherKey="DomainID" Type="Domain" IsForeignKey="true" />
+      <Association Name="Tag_DomainTag" Member="Tag" ThisKey="CountryTagID" OtherKey="Id" Type="Tag" IsForeignKey="true" />
+      <Association Name="Tag_DomainTag1" Member="Tag1" ThisKey="StateTagID" OtherKey="Id" Type="Tag" IsForeignKey="true" />
+      <Association Name="Tag_DomainTag2" Member="Tag2" ThisKey="CityTagID" OtherKey="Id" Type="Tag" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LinkedContent" Member="LinkedContents">
+    <Type Name="LinkedContent">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LinkedContent_ContentTag" Member="ContentTags" ThisKey="Id" OtherKey="LinkedContentID" Type="ContentTag" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileImage" Member="FileImages">
+    <Type Name="FileImage">
+      <Column Name="ImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageDS" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageFIleNM" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageThumbFileNM" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImageDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tag" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tag_ContentTag" Member="ContentTags" ThisKey="Id" OtherKey="TagID" Type="ContentTag" />
+      <Association Name="Tag_DomainTag" Member="DomainTags" ThisKey="Id" OtherKey="CountryTagID" Type="DomainTag" />
+      <Association Name="Tag_DomainTag1" Member="DomainTags1" ThisKey="Id" OtherKey="StateTagID" Type="DomainTag" />
+      <Association Name="Tag_DomainTag2" Member="DomainTags2" ThisKey="Id" OtherKey="CityTagID" Type="DomainTag" />
+      <Association Name="TagType_Tag" Member="TagType" ThisKey="TagTypeID" OtherKey="ID" Type="TagType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TagType" Member="TagTypes">
+    <Type Name="TagType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descsription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TagType_Tag" Member="Tags" ThisKey="ID" OtherKey="TagTypeID" Type="Tag" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ContentTag_DeleteRow" Method="ContentTag_DeleteRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ContentTag_Insert" Method="ContentTag_Insert">
+    <Parameter Name="LinkedContentID" Parameter="linkedContentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TagID" Parameter="tagID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ContentTag_InsertResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ContentTag_SelectAll" Method="ContentTag_SelectAll">
+    <ElementType Name="ContentTag_SelectAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ContentTag_SelectRow" Method="ContentTag_SelectRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ContentTag_SelectRowResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ContentTag_Update" Method="ContentTag_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LinkedContentID" Parameter="linkedContentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TagID" Parameter="tagID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ContentTag_UpdateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Domain_DeleteRow" Method="Domain_DeleteRow">
+    <Parameter Name="DomainID" Parameter="domainID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Domain_Insert" Method="Domain_Insert">
+    <Parameter Name="DomainNM" Parameter="domainNM" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DomainDS" Parameter="domainDS" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainComment" Parameter="domainComment" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="GalleryFolder" Parameter="galleryFolder" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainURL" Parameter="domainURL" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainTitle" Parameter="domainTitle" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="UseBreadCrumbURL" Parameter="useBreadCrumbURL" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ModifiedID" Parameter="modifiedID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedDT" Parameter="modifiedDT" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VersionNo" Parameter="versionNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Domain_InsertResult">
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainDS" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GalleryFolder" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainURL" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainTitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UseBreadCrumbURL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VersionNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Domain_SelectAll" Method="Domain_SelectAll">
+    <ElementType Name="Domain_SelectAllResult">
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainDS" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GalleryFolder" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainURL" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainTitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UseBreadCrumbURL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VersionNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Domain_SelectRow" Method="Domain_SelectRow">
+    <Parameter Name="DomainID" Parameter="domainID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Domain_SelectRowResult">
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainDS" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GalleryFolder" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainURL" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainTitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UseBreadCrumbURL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VersionNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Domain_Update" Method="Domain_Update">
+    <Parameter Name="DomainID" Parameter="domainID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DomainNM" Parameter="domainNM" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DomainDS" Parameter="domainDS" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainComment" Parameter="domainComment" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="GalleryFolder" Parameter="galleryFolder" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainURL" Parameter="domainURL" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DomainTitle" Parameter="domainTitle" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="UseBreadCrumbURL" Parameter="useBreadCrumbURL" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ModifiedID" Parameter="modifiedID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedDT" Parameter="modifiedDT" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VersionNo" Parameter="versionNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Domain_UpdateResult">
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainNM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainDS" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GalleryFolder" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainURL" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DomainTitle" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UseBreadCrumbURL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VersionNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainTag_DeleteRow" Method="DomainTag_DeleteRow">
+    <Parameter Name="DomainTagID" Parameter="domainTagID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DomainTag_Insert" Method="DomainTag_Insert">
+    <Parameter Name="DomainID" Parameter="domainID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CountryTagID" Parameter="countryTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StateTagID" Parameter="stateTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CityTagID" Parameter="cityTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedID" Parameter="modifiedID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedDT" Parameter="modifiedDT" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="DomainTag_InsertResult">
+      <Column Name="DomainTagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainTag_SelectAll" Method="DomainTag_SelectAll">
+    <ElementType Name="DomainTag_SelectAllResult">
+      <Column Name="DomainTagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainTag_SelectRow" Method="DomainTag_SelectRow">
+    <Parameter Name="DomainTagID" Parameter="domainTagID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="DomainTag_SelectRowResult">
+      <Column Name="DomainTagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainTag_Update" Method="DomainTag_Update">
+    <Parameter Name="DomainTagID" Parameter="domainTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DomainID" Parameter="domainID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CountryTagID" Parameter="countryTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StateTagID" Parameter="stateTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CityTagID" Parameter="cityTagID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedID" Parameter="modifiedID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedDT" Parameter="modifiedDT" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="DomainTag_UpdateResult">
+      <Column Name="DomainTagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CountryTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityTagID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LinkedContent_DeleteRow" Method="LinkedContent_DeleteRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LinkedContent_Insert" Method="LinkedContent_Insert">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PubDate" Parameter="pubDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndPubDate" Parameter="endPubDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="IconURL" Parameter="iconURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ImageURL" Parameter="imageURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LinkURL" Parameter="linkURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LastEditDate" Parameter="lastEditDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LinkAnchorText" Parameter="linkAnchorText" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ReadMoreText" Parameter="readMoreText" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="LinkedContent_InsertResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LinkedContent_SelectAll" Method="LinkedContent_SelectAll">
+    <ElementType Name="LinkedContent_SelectAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LinkedContent_SelectByTags" Method="LinkedContent_SelectByTags">
+    <Parameter Name="Keywords" Parameter="keywords" Type="System.String" DbType="NVarChar(1000)" />
+    <ElementType Name="LinkedContent_SelectByTagsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LinkedContent_SelectRow" Method="LinkedContent_SelectRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="LinkedContent_SelectRowResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LinkedContent_Update" Method="LinkedContent_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PubDate" Parameter="pubDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndPubDate" Parameter="endPubDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="IconURL" Parameter="iconURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ImageURL" Parameter="imageURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LinkURL" Parameter="linkURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LastEditDate" Parameter="lastEditDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LinkAnchorText" Parameter="linkAnchorText" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ReadMoreText" Parameter="readMoreText" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="LinkedContent_UpdateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndPubDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IconURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LastEditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LinkAnchorText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReadMoreText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tag_DeleteRow" Method="Tag_DeleteRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Tag_Insert" Method="Tag_Insert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TagTypeID" Parameter="tagTypeID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Tag_InsertResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tag_SelectAll" Method="Tag_SelectAll">
+    <ElementType Name="Tag_SelectAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tag_SelectRow" Method="Tag_SelectRow">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Tag_SelectRowResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Tag_Update" Method="Tag_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TagTypeID" Parameter="tagTypeID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Tag_UpdateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TagTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TagType_DeleteRow" Method="TagType_DeleteRow">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TagType_Insert" Method="TagType_Insert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Descsription" Parameter="descsription" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="TagType_InsertResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descsription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TagType_SelectAll" Method="TagType_SelectAll">
+    <ElementType Name="TagType_SelectAllResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descsription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TagType_SelectRow" Method="TagType_SelectRow">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TagType_SelectRowResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descsription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TagType_Update" Method="TagType_Update">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Descsription" Parameter="descsription" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="TagType_UpdateResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descsription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ContentTag_SelectByLinkedContentID" Method="ContentTag_SelectByLinkedContentID">
+    <Parameter Name="LinkedContentID" Parameter="linkedContentID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ContentTag_SelectByLinkedContentIDResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkedContentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ContentTag_DeleteByLinkedContetID" Method="ContentTag_DeleteByLinkedContetID">
+    <Parameter Name="LinkedContentID" Parameter="linkedContentID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
