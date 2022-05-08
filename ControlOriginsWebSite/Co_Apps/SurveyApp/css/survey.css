@@ -1,0 +1,533 @@
+﻿input.SliderText
+{
+    border: 0;
+    width: 30px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+div.RatingSlider
+{
+    width: 200px;
+    padding-right: 10px;
+}
+
+div.SliderControl
+{
+    padding: 5px;
+}
+
+div.SurveyGridContainer
+{
+    width: 800px;
+    overflow-x: scroll;
+    margin-left: 450px;
+    overflow-y: visible;
+    padding-bottom: 1px;
+}
+
+table.SurveyFormTable,
+table.SurveyFormTable th,
+table.SurveyFormTable td
+{
+    border-collapse: collapse;
+    border: solid 1px #eee;
+    background-color: #FFF;
+    padding: 0;
+    text-align: left;
+}
+
+    table.SurveyFormTable td.SurveyGridRowLabel
+    {
+        text-wrap: normal;
+        vertical-align: top;
+        text-align: left;
+        position: absolute;
+        width: 400px;
+        left: 400px;
+        top: auto;
+        border: 0px none black;
+    }
+
+    table.SurveyFormTable th
+    {
+        background: #0f4871;
+        color: #fff;
+    }
+
+    table.SurveyFormTable tr:nth-child(2n)
+    {
+        background: #f1f1f1;
+    }
+
+    table.SurveyFormTable td:focus
+    {
+        background: #ccc;
+    }
+
+td.SurveyQuestionAnswerCell
+{
+    margin: 0;
+    border: 0;
+    vertical-align: top;
+    min-width: 200px;
+}
+
+    td.SurveyQuestionAnswerCell input, td.SurveyQuestionAnswerCell label
+    {
+        vertical-align: baseline;
+        background-color: transparent;
+    }
+
+div.QuestionReview,
+div.Question
+{
+    background-color: transparent;
+    padding-left: 21px;
+    text-indent: -21px;
+    margin-left: 6px;
+}
+
+    div.Question span
+    {
+        position: absolute;
+        display: none;
+        text-decoration: none;
+        text-indent: 0;
+        color: black;
+        background-color: yellow;
+        border: 5px solid green;
+        padding: 5px;
+        margin: 3px;
+        z-index: 5;
+        top: 20px;
+        left: 15px;
+        width: 200px;
+        height: 75px;
+        overflow: scroll;
+    }
+
+    div.Question:hover span
+    {
+        display: block;
+    }
+
+    div.Question p
+    {
+        font-weight: 600;
+    }
+
+        div.Question p em
+        {
+            font-weight: 300;
+        }
+
+    div.Question ul
+    {
+        font-weight: 600;
+        list-style: none;
+    }
+
+        div.Question ul li
+        {
+            font-weight: 600;
+            list-style: none;
+        }
+
+    div.QuestionReview p
+    {
+        font-weight: 300;
+    }
+
+    div.QuestionReview ul
+    {
+        font-weight: 300;
+        list-style: none;
+    }
+
+        div.QuestionReview ul li
+        {
+            font-weight: 300;
+            list-style: none;
+        }
+
+
+div.QuestionResponse
+{
+    background-color: #ddd;
+    color: black;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+    div.QuestionResponse h3
+    {
+        font-weight: 300;
+    }
+
+    div.QuestionResponse p
+    {
+        font-weight: 300;
+    }
+
+    div.QuestionResponse blockquote
+    {
+        font-weight: 600;
+        margin-left: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-style: italic;
+        width: 100%;
+        white-space: pre-wrap;
+    }
+
+div.QuestionDescription
+{
+    background-color: transparent;
+    color: black;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+    div.QuestionDescription h3
+    {
+        margin-top: 5px;
+    }
+
+    div.QuestionDescription p
+    {
+        font-weight: 300;
+        margin-top: 5px;
+    }
+
+    div.QuestionDescription blockquote
+    {
+        margin-left: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-style: italic;
+        width: 100%;
+        white-space: pre-wrap;
+        margin-top: 5px;
+    }
+
+
+div.QuestionAnswerForm
+{
+    background-color: transparent;
+    color: black;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+    div.QuestionAnswerForm h3
+    {
+        margin-top: 5px;
+    }
+
+    div.QuestionAnswerForm p
+    {
+        font-weight: 300;
+        margin-top: 5px;
+    }
+
+    div.QuestionAnswerForm blockquote
+    {
+        margin-left: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-style: italic;
+        width: 100%;
+        white-space: pre-wrap;
+        margin-top: 5px;
+    }
+
+    div.QuestionAnswerForm label
+    {
+        display: block;
+        margin-left: 15px;
+        padding-bottom: 5px;
+        margin-top: 0px;
+    }
+
+    div.QuestionAnswerForm input
+    {
+        float: left;
+        margin-left: -10px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    div.QuestionAnswerForm textarea
+    {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+
+.no-close .ui-dialog-titlebar-close
+{
+    display: none;
+}
+
+label.error
+{
+    color: red;
+    font-weight: 900;
+}
+
+
+#container
+{
+    border: solid 3px inherit;
+}
+
+#SurveyAdminNav
+{
+    border: solid 1px #b7ddf2;
+    background: #FFFFCC;
+    padding: 4px 0px 4px 4px;
+}
+
+div#SurveyAdminForm
+{
+    border: solid 1px #b7ddf2;
+    background: #ebf4fb;
+    padding: 4px 0px 4px 4px;
+    max-width: 800px;
+    min-width: 800px;
+}
+
+    div#SurveyAdminForm fieldset
+    {
+        border: 1px solid #ccc;
+        margin: 10px 0 0 0;
+        padding: 10px 0 10px 0;
+    }
+
+    div#SurveyAdminForm legend
+    {
+        color: #444;
+        background: #ccc;
+        font-size: 1.5em;
+        padding: 5px;
+    }
+
+    div#SurveyAdminForm label
+    {
+        display: inline-block;
+        vertical-align: top;
+        margin: 8px;
+        width: 130px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    div#SurveyAdminForm span.CheckBox,
+    div#SurveyAdminForm input,
+    div#SurveyAdminForm button,
+    div#SurveyAdminForm textarea,
+    div#SurveyAdminForm select
+    {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin-top: 10px;
+    }
+
+    div#SurveyAdminForm .small
+    {
+        color: #666666;
+        display: inline;
+        font-size: 11px;
+        font-weight: normal;
+        text-align: right;
+    }
+
+
+    div#SurveyAdminForm table.RadioButtonList
+    {
+        border: solid 1px #aacfe4;
+        margin-left: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+    }
+
+        div#SurveyAdminForm table.RadioButtonList tr td input
+        {
+            float: left;
+            font-size: 12px;
+            border: none;
+            width: 15px;
+            padding: 4px 2px;
+            margin: 2px 0 0px 0px;
+            vertical-align: bottom;
+            position: relative;
+            top: -1px;
+            *overflow: hidden;
+        }
+
+        div#SurveyAdminForm table.RadioButtonList tr td label
+        {
+            margin: 5px;
+            border: none;
+            font-weight: bold;
+            text-align: left;
+            width: 140px;
+            float: left;
+        }
+
+
+    div#SurveyAdminForm span.CheckBox
+    {
+        border: solid 1px #aacfe4;
+        margin-left: 150px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        top: -15px;
+        position: relative;
+    }
+
+
+        div#SurveyAdminForm span.CheckBox input
+        {
+            float: left;
+            font-size: 12px;
+            border: none;
+            width: 15px;
+            padding: 4px 2px;
+            margin: 2px 0 0px 0px;
+            vertical-align: bottom;
+            position: relative;
+            top: -1px;
+            *overflow: hidden;
+        }
+
+        div#SurveyAdminForm span.CheckBox label
+        {
+            margin: 5px;
+            border: none;
+            font-weight: bold;
+            text-align: left;
+            width: 440px;
+            float: left;
+        }
+
+
+.clearfix:before,
+.clearfix:after
+{
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after
+{
+    clear: both;
+}
+
+.clearfix
+{
+    *zoom: 1;
+}
+
+
+
+.tabrow li
+{
+    border: 1px solid #AAA;
+    background: #D1D1D1;
+    background: -o-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    background: -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    background: -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    background: -webkit-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    background: linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+    text-shadow: 0 1px #FFF;
+    margin: 0 -5px;
+    padding: 0 20px;
+}
+
+.tabrow a
+{
+    color: #555;
+    text-decoration: none;
+}
+
+.tabrow li.selected
+{
+    background: #FFF;
+    color: #333;
+    z-index: 2;
+    border-bottom-color: #FFF;
+}
+
+.tabrow:before
+{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid #AAA;
+    z-index: 1;
+}
+
+.tabrow li:before,
+.tabrow li:after
+{
+    border: 1px solid #AAA;
+    position: absolute;
+    bottom: -1px;
+    width: 5px;
+    height: 5px;
+    content: " ";
+}
+
+.tabrow li:before
+{
+    left: -6px;
+    border-bottom-right-radius: 6px;
+    border-width: 0 1px 1px 0;
+    box-shadow: 2px 2px 0 #D1D1D1;
+}
+
+.tabrow li:after
+{
+    right: -6px;
+    border-bottom-left-radius: 6px;
+    border-width: 0 0 1px 1px;
+    box-shadow: -2px 2px 0 #D1D1D1;
+}
+
+.tabrow li.selected:before
+{
+    box-shadow: 2px 2px 0 #FFF;
+}
+
+.tabrow li.selected:after
+{
+    box-shadow: -2px 2px 0 #FFF;
+}

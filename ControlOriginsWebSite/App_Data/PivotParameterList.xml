@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDataGridVisualization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataGridVisualization>
+    <Name>Six Sigma Assessment</Name>
+    <ApplicationID>29</ApplicationID>
+    <DataSource>ApplicationDetail</DataSource>
+    <ChartTitles>
+      <string>Six Sigma Assessment</string>
+      <string>This is my Title</string>
+    </ChartTitles>
+    <AggregatorName>Average</AggregatorName>
+    <rendererName>Table</rendererName>
+    <ChartType>StackedBar</ChartType>
+    <ChartStyle>2D</ChartStyle>
+    <ChartPalette>12</ChartPalette>
+    <ChartWidth>0</ChartWidth>
+    <ChartHeight>0</ChartHeight>
+    <BackgroundImage>~/images/slider_img_3.jpg</BackgroundImage>
+    <Cols>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">FirstNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">FirstNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Cols>
+    <Rows>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Rows>
+    <Vals>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseGroupScore</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseGroupScore</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Vals>
+    <FilterColumn>
+      <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+      <Index xmlns="http://ws.controlorigins.com/">0</Index>
+      <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+    </FilterColumn>
+    <IncludeValues>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>Customer</string>
+        </ColumnValues>
+      </GridColumn>
+    </IncludeValues>
+    <ExcluedValues>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>Process Improvement</string>
+          <string>Process Management</string>
+          <string>Strategy, Alignment, &amp; Support</string>
+        </ColumnValues>
+      </GridColumn>
+    </ExcluedValues>
+    <SeriesDataList />
+    <PrimaryFontColor />
+  </DataGridVisualization>
+  <DataGridVisualization>
+    <Name>Process Management</Name>
+    <ApplicationID>29</ApplicationID>
+    <DataSource>ApplicationDetail</DataSource>
+    <ChartTitles>
+      <string>Six Sigma Assessment</string>
+      <string>This is my Title</string>
+    </ChartTitles>
+    <AggregatorName>Average</AggregatorName>
+    <rendererName>Table</rendererName>
+    <ChartType>StackedColumn</ChartType>
+    <ChartStyle>2D</ChartStyle>
+    <ChartPalette>12</ChartPalette>
+    <ChartWidth>0</ChartWidth>
+    <ChartHeight>0</ChartHeight>
+    <BackgroundImage />
+    <Cols>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">FirstNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">FirstNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Cols>
+    <Rows>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Rows>
+    <Vals>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseGroupScore</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseGroupScore</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Vals>
+    <FilterColumn>
+      <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+      <Index xmlns="http://ws.controlorigins.com/">0</Index>
+      <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+    </FilterColumn>
+    <IncludeValues>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>Process Management</string>
+        </ColumnValues>
+      </GridColumn>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>Data is gathered on performance of key processes</string>
+          <string>Data is NOT used to punish people</string>
+          <string>Decisions regarding changes/improvements are based on data</string>
+          <string>Leadership is well versed in the Six Sigma process</string>
+          <string>Management does NOT make knee-jerk reactions</string>
+          <string>My company supports training and employee development</string>
+          <string>My company uses a solid methodology to improve results</string>
+          <string>Our employees have had formal training in Six Sigma</string>
+          <string>Our employees have solid quantitative analysis skills</string>
+          <string>Our leadership team is actively involved in improvement efforts</string>
+          <string>Our leadership team is committed to making Six Sigma work</string>
+          <string>Our organization embraces change</string>
+          <string>Process improvement teams are regularly established to improve results</string>
+          <string>SPC tools are used regularly (process maps, control charts, pareto charts, …)</string>
+          <string>The company has a clearly defined strategy</string>
+          <string>The company sticks with business improvement efforts</string>
+          <string>The company's strategy is well known by everyone within the organization</string>
+          <string>The data we gather is accurate</string>
+          <string>The strategy is key to our company's success</string>
+          <string>There is clear accountability/ownership for cross-functional processes</string>
+          <string>We generally meet or exceed our customer requirements</string>
+          <string>We have a good understanding of how we impact other areas of the business</string>
+          <string>We have thorough understanding of our own processes (how work gets done)</string>
+          <string>We measure our performance against our customer requirements</string>
+          <string>We talk to our customers about their satisfaction levels on a regular basis</string>
+          <string>We understand our customer's requirements</string>
+          <string>When problems occur there is a focus on solving the problem rather than assigning blame. </string>
+        </ColumnValues>
+      </GridColumn>
+    </IncludeValues>
+    <ExcluedValues>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionGroupNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>Customer</string>
+          <string>Process Improvement</string>
+          <string>Strategy, Alignment, &amp; Support</string>
+        </ColumnValues>
+      </GridColumn>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+        <ColumnValues xmlns="http://ws.controlorigins.com/">
+          <string>My company has department metrics that support the corporate strategy</string>
+          <string>My company has Six Sigma Champions</string>
+          <string>Organizations within our company have regular process review meetings</string>
+          <string>Our company has trained Six Sigma Black Belts</string>
+          <string>The strategy does not change often</string>
+          <string>The strategy is communicated consistently throughout the company</string>
+        </ColumnValues>
+      </GridColumn>
+    </ExcluedValues>
+    <SeriesDataList />
+    <PrimaryFontColor />
+  </DataGridVisualization>
+  <DataGridVisualization>
+    <Name>New</Name>
+    <ApplicationID>32</ApplicationID>
+    <DataSource>ApplicationDetail</DataSource>
+    <ChartTitles />
+    <AggregatorName>Average</AggregatorName>
+    <rendererName>Table</rendererName>
+    <ChartType>Point</ChartType>
+    <ChartWidth>0</ChartWidth>
+    <ChartHeight>0</ChartHeight>
+    <Cols>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">QuestionGroupShortNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">QuestionGroupShortNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Cols>
+    <Rows>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Rows>
+    <Vals>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseScore</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseScore</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Vals>
+    <FilterColumn>
+      <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+      <Index xmlns="http://ws.controlorigins.com/">0</Index>
+      <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+    </FilterColumn>
+    <IncludeValues />
+    <ExcluedValues />
+    <SeriesDataList />
+    <PrimaryFontColor />
+  </DataGridVisualization>
+  <DataGridVisualization>
+    <Name>Employee Assessment</Name>
+    <ApplicationID>32</ApplicationID>
+    <DataSource>ApplicationDetail</DataSource>
+    <ChartTitles>
+      <string>Employee Assessment</string>
+      <string />
+    </ChartTitles>
+    <AggregatorName>Average</AggregatorName>
+    <rendererName>Table</rendererName>
+    <ChartType>StackedColumn</ChartType>
+    <ChartStyle>2D</ChartStyle>
+    <ChartPalette>0</ChartPalette>
+    <ChartWidth>0</ChartWidth>
+    <ChartHeight>0</ChartHeight>
+    <BackgroundImage>~/images/WorldGlobe.jpg</BackgroundImage>
+    <Cols>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">ApplicationNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">ApplicationNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Cols>
+    <Rows>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseNM</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseNM</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Rows>
+    <Vals>
+      <GridColumn>
+        <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+        <DisplayName xmlns="http://ws.controlorigins.com/">SurveyResponseScore</DisplayName>
+        <SourceName xmlns="http://ws.controlorigins.com/">SurveyResponseScore</SourceName>
+        <Index xmlns="http://ws.controlorigins.com/">0</Index>
+        <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+      </GridColumn>
+    </Vals>
+    <FilterColumn>
+      <ColumnDisplayFormat xmlns="http://ws.controlorigins.com/">Number</ColumnDisplayFormat>
+      <Index xmlns="http://ws.controlorigins.com/">0</Index>
+      <UniqueValues xmlns="http://ws.controlorigins.com/">0</UniqueValues>
+    </FilterColumn>
+    <IncludeValues />
+    <ExcluedValues />
+    <SeriesDataList />
+    <PrimaryFontColor />
+  </DataGridVisualization>
+</ArrayOfDataGridVisualization>
