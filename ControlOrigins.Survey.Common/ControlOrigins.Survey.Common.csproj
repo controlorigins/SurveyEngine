@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Copyright>Copyright © 2019-2021 Mark Hazleton</Copyright>
+		<IsPackable>false</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReleaseNotes>Add Comments</PackageReleaseNotes>
+		<RepositoryType>GIT</RepositoryType>
+		<RepositoryUrl>https://dev.azure.com/projectmechanics/ControlOrigins/_git/Survey</RepositoryUrl>
+		<PackageProjectUrl>https://dev.azure.com/projectmechanics/ControlOrigins/_git/Survey</PackageProjectUrl>
+		<PackageIcon>ProjectMechanicsLogo.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Company>Mark Hazleton</Company>
+		<Authors>Mark Hazleton</Authors>
+		<Description>The domain models for the ControlOrigins.Survey Project</Description>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Deterministic>false</Deterministic>
+		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
+		<AssemblyVersion>6.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(ddHH)).$([System.DateTime]::UtcNow.ToString(mmss))</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Processor\**" />
+		<Compile Remove="Properties\**" />
+		<EmbeddedResource Remove="Processor\**" />
+		<EmbeddedResource Remove="Properties\**" />
+		<None Remove="Processor\**" />
+		<None Remove="Properties\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="RestSharp" Version="108.0.1" />
+		<PackageReference Include="System.Text.Json" Version="6.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+		<None Include="ProjectMechanicsLogo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Interfaces\" />
+		<Folder Include="Repositories\" />
+		<Folder Include="SDK\User\" />
+	</ItemGroup>
+
+</Project>

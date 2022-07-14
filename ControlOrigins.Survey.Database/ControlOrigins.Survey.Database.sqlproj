@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ControlOrigins.Survey.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c3d68495-81ef-48a5-b8ca-fe1bf0be8099}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ControlOrigins.Survey.Database</RootNamespace>
+    <AssemblyName>ControlOrigins.Survey.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <CreateProjectFromDatabaseCompleted>True</CreateProjectFromDatabaseCompleted>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Application.sql" />
+    <Build Include="dbo\Tables\ApplicationSurvey.sql" />
+    <Build Include="dbo\Tables\ApplicationUser.sql" />
+    <Build Include="dbo\Tables\ApplicationUserRole.sql" />
+    <Build Include="dbo\Tables\AppProperty.sql" />
+    <Build Include="dbo\Tables\ChartSetting.sql" />
+    <Build Include="dbo\Tables\Company.sql" />
+    <Build Include="dbo\Tables\ImportHistory.sql" />
+    <Build Include="dbo\Tables\lu_ApplicationType.sql" />
+    <Build Include="dbo\Tables\lu_QuestionType.sql" />
+    <Build Include="dbo\Tables\lu_ReviewStatus.sql" />
+    <Build Include="dbo\Tables\lu_SurveyResponseStatus.sql" />
+    <Build Include="dbo\Tables\lu_SurveyType.sql" />
+    <Build Include="dbo\Tables\lu_UnitOfMeasure.sql" />
+    <Build Include="dbo\Tables\Question.sql" />
+    <Build Include="dbo\Tables\QuestionAnswer.sql" />
+    <Build Include="dbo\Tables\QuestionGroup.sql" />
+    <Build Include="dbo\Tables\QuestionGroupMember.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\SiteAppMenu.sql" />
+    <Build Include="dbo\Tables\SiteRole.sql" />
+    <Build Include="dbo\Tables\Survey.sql" />
+    <Build Include="dbo\Tables\SurveyEmailTemplate.sql" />
+    <Build Include="dbo\Tables\SurveyResponse.sql" />
+    <Build Include="dbo\Tables\SurveyResponseAnswer.sql" />
+    <Build Include="dbo\Tables\SurveyResponseAnswer_Error.sql" />
+    <Build Include="dbo\Tables\SurveyResponseAnswerReview.sql" />
+    <Build Include="dbo\Tables\SurveyResponseHistory.sql" />
+    <Build Include="dbo\Tables\SurveyResponseSequence.sql" />
+    <Build Include="dbo\Tables\SurveyResponseState.sql" />
+    <Build Include="dbo\Tables\SurveyReviewStatus.sql" />
+    <Build Include="dbo\Tables\SurveyStatus.sql" />
+    <Build Include="dbo\Tables\tblFiles.sql" />
+    <Build Include="dbo\Tables\UserAppProperty.sql" />
+    <Build Include="dbo\Tables\UserMessages.sql" />
+    <Build Include="dbo\Tables\WebPortal.sql" />
+    <Build Include="dbo\Views\vwContextQuestionAnswer.sql" />
+    <Build Include="dbo\Views\vwSurveyResponseContext.sql" />
+    <Build Include="dbo\Views\vwAnadarkoApplicationUserValidate.sql" />
+    <Build Include="dbo\Views\vwApplication.sql" />
+    <Build Include="dbo\Views\vwApplicationPermissison.sql" />
+    <Build Include="dbo\Views\vwApplicationSurveyResponse.sql" />
+    <Build Include="dbo\Views\vwApplicationSurveyResponseDetail.sql" />
+    <Build Include="dbo\Views\vwApplicationSurveyResponsePermission.sql" />
+    <Build Include="dbo\Views\vwApplicationSurveyResponseSummary.sql" />
+    <Build Include="dbo\Views\vwQuestionLibrary.sql" />
+    <Build Include="dbo\Views\vwSurveyQuestions.sql" />
+    <Build Include="dbo\Views\vwSurveyResponseDetail.sql" />
+    <Build Include="dbo\Views\vwSurveyResponseGroupSummary.sql" />
+    <Build Include="dbo\Views\vwSurveyResponseSummary.sql" />
+    <Build Include="dbo\Views\vwValidateAnadarkoUser.sql" />
+    <Build Include="dbo\Views\vwValidateImportUser.sql" />
+    <Build Include="dbo\Stored Procedures\lu_ApplicationType_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectByCompanyID.sql" />
+    <Build Include="dbo\Stored Procedures\lu_ApplicationType_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\lu_ApplicationType_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\lu_ApplicationType_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectSummary.sql" />
+    <Build Include="dbo\Stored Procedures\lu_SurveyType_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\Application_Update.sql" />
+    <Build Include="dbo\Stored Procedures\lu_SurveyType_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\lu_SurveyType_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\lu_SurveyType_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\lu_SurveyType_Update.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_SelectByAccountNM.sql" />
+    <Build Include="dbo\Stored Procedures\Question_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_SelectByCompanyID.sql" />
+    <Build Include="dbo\Stored Procedures\Question_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\Question_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_SelectSummary.sql" />
+    <Build Include="dbo\Stored Procedures\Question_SelectByQuestionShortNM.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Question_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUser_UpdateLastLogin.sql" />
+    <Build Include="dbo\Stored Procedures\Question_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\Question_Update.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\RemoveSurvey.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\RemoveSurveyResponse.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_SelectByApplicationID.sql" />
+    <Build Include="dbo\Stored Procedures\SiteAppMenu_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_SelectByApplicationUserID.sql" />
+    <Build Include="dbo\Stored Procedures\SiteAppMenu_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\SiteAppMenu_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\ApplicationUserRole_Update.sql" />
+    <Build Include="dbo\Stored Procedures\SiteAppMenu_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\SiteAppMenu_Update.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\tblFiles_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\tblFiles_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_SelectByAppIDKey.sql" />
+    <Build Include="dbo\Stored Procedures\tblFiles_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\tblFiles_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\AppProperty_Update.sql" />
+    <Build Include="dbo\Stored Procedures\tblFiles_Update.sql" />
+    <Build Include="dbo\Stored Procedures\ChartSetting_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\UserAppProperty_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\ChartSetting_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\UserAppProperty_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\ChartSetting_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\UserAppProperty_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\ChartSetting_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\UserAppProperty_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\ChartSetting_Update.sql" />
+    <Build Include="dbo\Stored Procedures\UserAppProperty_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Company_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\UserMessages_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\Company_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\UserMessages_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Company_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\UserMessages_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\Company_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\UserMessages_SelectRow.sql" />
+    <Build Include="dbo\Stored Procedures\Company_Update.sql" />
+    <Build Include="dbo\Stored Procedures\UserMessages_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ApplicationSurvey_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ApplicationSurveyResponseDetail_BySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ApplicationSurvey_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ApplicationSurveyResponseDetail_ByWhere.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ApplicationSurvey_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ApplicationSurveyResponseDetailCount_ByWhere.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ApplicationSurvey_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ImportHistory_SelectByFileName.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ImportHistory_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Question_SelectByQuestionShortNM.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ImportHistory_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Question_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ImportHistory_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_QuestionAnswer_SelectByQuestionID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_ImportHistory_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_QuestionGroup_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ApplicationType_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_QuestionGroupMember_SelectByQuestionGroupID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ApplicationType_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_DeleteRelated.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ApplicationType_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_InsertApplicationSurvey.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ApplicationType_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_SelectByApplicationID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_QuestionType_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_SelectByQuestionID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_QuestionType_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_SelectBySurveyShortNM.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_QuestionType_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Survey_SelectSummary.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_QuestionType_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyEmailTemplate_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ReviewStatus_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_CloneAnswers.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ReviewStatus_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ReviewStatus_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_Reset.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_ReviewStatus_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_SelectByApplicationUserID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_SurveyResponseStatus_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_SelectByRowOrderBy.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_SurveyResponseStatus_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_SurveyResponseStatus_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_SelectByUserIDApplicationID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_SurveyResponseStatus_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponse_SelectCountByWhere.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_UnitOfMeasure_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseAnswer_DeleteBySurveyResponseIDQuestionID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_UnitOfMeasure_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseAnswerReview_DeleteBySurveyAnswerID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_UnitOfMeasure_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseAnswerReview_SelectBySurveyAnswerID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_lu_UnitOfMeasure_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseAnswerReview_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionAnswer_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseCurrentAnswers_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionAnswer_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseHistory_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionAnswer_Select.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseSequence_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionAnswer_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyResponseState_SelectBySurveyResponseID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroup_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyReviewStatus_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroup_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_SurveyStatus_SelectBySurveyID.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroup_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroup_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroupMember_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroupMember_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroupMember_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_QuestionGroupMember_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Role_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Role_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Role_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Role_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Survey_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Survey_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Survey_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_Survey_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyEmailTemplate_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyEmailTemplate_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyEmailTemplate_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyEmailTemplate_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponse_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponse_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponse_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponse_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Error_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Error_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Error_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Error_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswer_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswerReview_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswerReview_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswerReview_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseAnswerReview_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseHistory_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseHistory_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseHistory_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseHistory_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseSequence_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseSequence_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseSequence_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseSequence_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseState_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseState_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseState_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyResponseState_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyReviewStatus_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyReviewStatus_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyReviewStatus_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyReviewStatus_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyStatus_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyStatus_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyStatus_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_SurveyStatus_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_UserMessages_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_UserMessages_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_UserMessages_Select.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_UserMessages_Update.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_WebPortal_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Application_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_WebPortal_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Application_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_WebPortal_Select.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\gsp_WebPortal_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectByAccountNM.sql" />
+    <Build Include="dbo\Stored Procedures\lu_ApplicationType_DeleteRow.sql" />
+    <Build Include="dbo\Stored Procedures\Application_SelectByApplicationIDAccountNM.sql" />
+  </ItemGroup>
+</Project>

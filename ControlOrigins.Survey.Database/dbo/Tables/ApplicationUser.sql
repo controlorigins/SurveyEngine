@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ApplicationUser] (
+    [ApplicationUserID]   INT              IDENTITY (1, 1) NOT NULL,
+    [FirstNM]             NVARCHAR (100)   NOT NULL,
+    [LastNM]              NVARCHAR (100)   NOT NULL,
+    [eMailAddress]        NVARCHAR (100)   NOT NULL,
+    [CommentDS]           NVARCHAR (MAX)   NULL,
+    [AccountNM]           NVARCHAR (50)    NOT NULL,
+    [SupervisorAccountNM] NVARCHAR (50)    NULL,
+    [LastLoginDT]         DATETIME         NULL,
+    [LastLoginLocation]   NVARCHAR (50)    NULL,
+    [DisplayName]         NVARCHAR (150)   CONSTRAINT [DF_ApplicationUser_DisplayName] DEFAULT ('Display Name') NOT NULL,
+    [Password]            NVARCHAR (150)   CONSTRAINT [DF_ApplicationUser_Password] DEFAULT (N'password') NOT NULL,
+    [RoleID]              INT              CONSTRAINT [DF_ApplicationUser_RoleID] DEFAULT ((4)) NOT NULL,
+    [UserKey]             UNIQUEIDENTIFIER NOT NULL,
+    [UserLogin]           NVARCHAR (150)   CONSTRAINT [DF_ApplicationUser_UserLogin] DEFAULT ('User Login') NOT NULL,
+    [EmailVerified]       BIT              CONSTRAINT [DF_ApplicationUser_EmailVerified] DEFAULT ((0)) NOT NULL,
+    [VerifyCode]          NVARCHAR (50)    CONSTRAINT [DF_ApplicationUser_VerifyCode] DEFAULT (N'Verify Code') NOT NULL,
+    [CompanyID]           INT              NULL,
+    [ModifiedID]          INT              CONSTRAINT [DF__Applicati__Modif__08B54D69] DEFAULT ((1)) NOT NULL,
+    [ModifiedDT]          DATETIME         CONSTRAINT [DF__Applicati__Modif__09A971A2] DEFAULT (getdate()) NOT NULL,
+    CONSTRAINT [ApplicationUser_PK] PRIMARY KEY NONCLUSTERED ([ApplicationUserID] ASC),
+    CONSTRAINT [FK_ApplicationUser_Company] FOREIGN KEY ([CompanyID]) REFERENCES [dbo].[Company] ([CompanyID]),
+    CONSTRAINT [FK_ApplicationUser_SiteRole] FOREIGN KEY ([RoleID]) REFERENCES [dbo].[SiteRole] ([Id]),
+    CONSTRAINT [UK_ApplicationUser_AccountNM] UNIQUE NONCLUSTERED ([AccountNM] ASC)
+);
+

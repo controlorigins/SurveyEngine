@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81F1A38A-26C6-492B-8CC8-FF27EF98962E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.Common", "ControlOrigins.Survey.Common\ControlOrigins.Survey.Common.csproj", "{B1C813CE-6A85-49B4-9715-72BCC9B4DBFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.Common.Tests", "ControlOrigins.Survey.Common.Tests\ControlOrigins.Survey.Common.Tests.csproj", "{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.Data", "ControlOrigins.Survey.Data\ControlOrigins.Survey.Data.csproj", "{E929E3AC-450F-4984-BA3E-1CC64D530543}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.Data.Tests", "ControlOrigins.Survey.Data.Tests\ControlOrigins.Survey.Data.Tests.csproj", "{D943190F-8499-4846-8C98-1E335D21D00F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.SoapClient", "ControlOrigins.Survey.SoapClient\ControlOrigins.Survey.SoapClient.csproj", "{5B5C3D46-87D8-4CF1-88CB-207EB7E0B16C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlOrigins.Survey.Api", "ControlOrigins.Survey.Api\ControlOrigins.Survey.Api.csproj", "{7BDB6E31-7486-4E7E-B589-2CD129A4C1D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{27769712-C7DF-4B47-8FCB-843257D203A9}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ControlOrigins.Survey.Database", "ControlOrigins.Survey.Database\ControlOrigins.Survey.Database.sqlproj", "{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlOrigins.Survey.Repository", "ControlOrigins.Survey.Repository\ControlOrigins.Survey.Repository.csproj", "{AC7DF8BE-DE72-4719-91DC-C186E67D15F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1C813CE-6A85-49B4-9715-72BCC9B4DBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C813CE-6A85-49B4-9715-72BCC9B4DBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C813CE-6A85-49B4-9715-72BCC9B4DBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C813CE-6A85-49B4-9715-72BCC9B4DBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E929E3AC-450F-4984-BA3E-1CC64D530543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E929E3AC-450F-4984-BA3E-1CC64D530543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E929E3AC-450F-4984-BA3E-1CC64D530543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E929E3AC-450F-4984-BA3E-1CC64D530543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D943190F-8499-4846-8C98-1E335D21D00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D943190F-8499-4846-8C98-1E335D21D00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D943190F-8499-4846-8C98-1E335D21D00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D943190F-8499-4846-8C98-1E335D21D00F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5C3D46-87D8-4CF1-88CB-207EB7E0B16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5C3D46-87D8-4CF1-88CB-207EB7E0B16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5C3D46-87D8-4CF1-88CB-207EB7E0B16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5C3D46-87D8-4CF1-88CB-207EB7E0B16C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BDB6E31-7486-4E7E-B589-2CD129A4C1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDB6E31-7486-4E7E-B589-2CD129A4C1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BDB6E31-7486-4E7E-B589-2CD129A4C1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BDB6E31-7486-4E7E-B589-2CD129A4C1D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D68495-81EF-48A5-B8CA-FE1BF0BE8099}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AC7DF8BE-DE72-4719-91DC-C186E67D15F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7DF8BE-DE72-4719-91DC-C186E67D15F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7DF8BE-DE72-4719-91DC-C186E67D15F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7DF8BE-DE72-4719-91DC-C186E67D15F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F316249E-D75D-4EA9-B16E-7D9CE0DFEB8C} = {27769712-C7DF-4B47-8FCB-843257D203A9}
+		{D943190F-8499-4846-8C98-1E335D21D00F} = {27769712-C7DF-4B47-8FCB-843257D203A9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE55042F-9B52-403E-A410-A9BE1A1A42B8}
+	EndGlobalSection
+EndGlobal

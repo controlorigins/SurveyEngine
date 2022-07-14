@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Copyright>Copyright © 2009-2021 Mark Hazleton</Copyright>
+		<IsPackable>false</IsPackable>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<UserSecretsId>628ab996-ec3e-413e-88de-44fc253af54c</UserSecretsId>
+		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+		<ApplicationInsightsResourceId>/subscriptions/1e3f18e4-ceb9-4033-8ce0-f17b8af6225f/resourceGroups/HelloWorld/providers/microsoft.insights/components/SampleMvcCRUDWeb</ApplicationInsightsResourceId>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<Deterministic>false</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Deterministic>false</Deterministic>
+		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
+		<AssemblyVersion>6.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(ddHH)).$([System.DateTime]::UtcNow.ToString(mmss))</AssemblyVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\ControlOrigins.Survey.Api.xml</DocumentationFile>
+		<OutputPath>bin\</OutputPath>
+		<NoWarn>1701;1702;1591;</NoWarn>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>bin\ControlOrigins.Survey.Api.xml</DocumentationFile>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
+		<PackageReference Include="Azure.Identity" Version="1.6.0" />
+		<PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.3.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+		<PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
+		<PackageReference Include="RestSharp" Version="108.0.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ControlOrigins.Survey.Common\ControlOrigins.Survey.Common.csproj" />
+		<ProjectReference Include="..\ControlOrigins.Survey.Data\ControlOrigins.Survey.Data.csproj" />
+		<ProjectReference Include="..\ControlOrigins.Survey.SoapClient\ControlOrigins.Survey.SoapClient.csproj" />
+	</ItemGroup>
+
+</Project>

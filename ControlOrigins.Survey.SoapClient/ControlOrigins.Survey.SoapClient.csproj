@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Copyright>Copyright © 2019-2021 Mark Hazleton</Copyright>
+		<IsPackable>false</IsPackable>
+		<Authors>Mark Hazleton</Authors>
+		<Product>Mwh Sample Soap Client</Product>
+		<Copyright>Copyright ©2020 Mark Hazleton</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://dev.azure.com/projectmechanics/ControlOrigins/_git/Survey</PackageProjectUrl>
+		<PackageIcon>ProjectMechanicsLogo.png</PackageIcon>
+		<RepositoryUrl>https://dev.azure.com/projectmechanics/ControlOrigins/_git/Survey</RepositoryUrl>
+		<RepositoryType>GIT</RepositoryType>
+		<PackageReleaseNotes>Add More Methods to Soap Client, Add Comments</PackageReleaseNotes>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<NeutralLanguage>en</NeutralLanguage>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Deterministic>false</Deterministic>
+		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
+		<AssemblyVersion>6.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(ddHH)).$([System.DateTime]::UtcNow.ToString(mmss))</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Nuget.CommandLine" Version="6.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.ServiceModel.Duplex" Version="4.9.0" />
+		<PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
+		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
+		<PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<WCFMetadata Include="Connected Services" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="ProjectMechanicsLogo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>
